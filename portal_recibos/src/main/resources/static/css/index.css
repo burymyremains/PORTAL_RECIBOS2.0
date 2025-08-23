@@ -1,0 +1,196 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    verflow: hidden;
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+    min-height: 600px;
+}
+
+/* Linea de la izquierda*/
+.left-panel {
+    width: 20%;
+    background-color: #8A2035;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px 10px;
+}
+
+/* Texto Subdirección*/
+.left-text {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+/* Fondo principal*/
+.right-panel {
+    width: 80%;
+    padding: 80px 40px 40px;
+    font-size: 19px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    background-image: url('/img/FondoLogIn.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.login-form label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: -10px;
+}
+
+.top-logos {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+/* Logo EdoMex Arriba Derecha*/
+.logo-inst {
+    height: 50px;
+    width: auto;
+}
+
+/* Titulo Portal Actualizaciones*/
+h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    max-width: 650px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 5px;
+}
+
+/* Formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+/* Campos de usuario y contraseña*/
+input[type="text"], input[type="password"] {
+    padding: 11px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+    font-size: 15px;
+    width: 100%;
+}
+
+.btn-ingresar {
+    background-color: #b58e57;
+    color: white;
+    border: none;
+    padding: 13px 43px;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    width: fit-content;
+    margin: 20px auto 30px;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+/* Texto abajo derecha*/
+.footer-help {
+    position: absolute;
+    bottom: 5px;
+    right: 30px;
+    font-size: 12px;
+    text-align: right;
+    max-width: 350px;
+    line-height: 1.4;
+}
+/*Credenciales invalidas*/
+.alerta-error {
+    background-color: #ffdddd;
+    border-left: 4px solid #f44336; /*borde alerta */
+    padding: 6px 15px;
+    margin: -10px 0;
+    color: #d32f2f;
+    border-radius: 4px;
+    font-size: 15px;
+    width: 14%;
+    max-width: 600px;
+    line-height: 1.4;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+
+}
+
+.alerta-exito {
+    background-color: #ddffdd;          /* Fondo verde claro */
+    border-left: 4px solid #4CAF50;     /* Borde verde */
+    padding: 6px 15px;
+    margin: -10px 0;
+    color: #2e7d32;                     /* Verde oscuro para el texto */
+    border-radius: 4px;
+    font-size: 15px;
+    width: 23%;
+    max-width: 650px;
+    line-height: 1.4;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+}
+
+
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+

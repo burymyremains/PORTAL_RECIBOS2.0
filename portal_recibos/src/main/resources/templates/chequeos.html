@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chequeos Procesados</title>
+  <link rel="stylesheet" href="/css/chequeos.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div></div>
+    <div class="logo-container">
+    <img src="/img/LogoGEM.png" class="logo">
+</div>
+  </header>
+
+<main class="contenido">
+  <h1 class="titulo">CHEQUEOS PROCESADOS</h1>
+
+  <div class="formulario">
+      <label class="label-rojo">Clave SP:</label>
+    <input type="text" class="campo" value="998619208" readonly>
+    </div>
+
+    <button class="btn-buscar">Buscar</button>
+
+  <div class="tabla-contenedor">
+    <div class="tabla-filtros">
+    <label>Ver:
+      <select>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+      </select> filas
+    </label>
+
+      <label class="buscar-label">
+        Buscar: <input type="text" class="campo-busqueda">
+      </label>
+    </div>
+
+    <table class="tabla">
+      <thead>
+      <tr>
+        <th>Clave SP</th>
+        <th>Fecha Chequeo</th>
+        <th>Procesado</th>
+        <th>Fecha Procesado</th>
+        <th>Estatus</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Datos simulados -->
+      <tr>
+        <td>210043178</td>
+        <td>May 22 2024 7:15PM</td>
+        <td>1</td>
+        <td>May 22 2024 11:00PM</td>
+        <td>$</td>
+      </tr>
+      <tr>
+        <td>210043178</td>
+        <td>Jul 5 2024 7:02PM</td>
+        <td>1</td>
+        <td>Jul 6 2024 11:00AM</td>
+        <td>$</td>
+      </tr>
+      <!-- Puedes duplicar más filas para simular -->
+      </tbody>
+    </table>
+  </div>
+  <div class="acciones">
+  <a href="/menu" class="btn-dorado">Regresar al Menú</a>
+  </div>
+</main>
+
+  <footer class="footer">
+    ©2025 - Subdirección de desarrollo Tecnológico
+  </footer>
+</body>
+</html>

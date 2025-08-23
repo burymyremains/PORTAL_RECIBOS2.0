@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PORTAL DE ACTUALIZACIONES DE RECIBO G2G</title>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+<div class="login-container">
+  <div class="left-panel">
+    <div class="left-text">©2025 - Subdirección de<br>desarrollo Tecnológico</div>
+  </div>
+
+  <div class="right-panel">
+    <div class="top-logos">
+      <img src="/img/LogoGEM.png" alt="Gobierno" class="logo-inst">
+    </div>
+
+    <h1>“PORTAL DE ACTUALIZACIONES DE RECIBO G2G”</h1>
+    <p>Ingrese sus datos de acceso:</p>
+
+      <script>
+          setTimeout(() => {
+              const alert = document.getElementById("logoutAlert");
+              if (alert) alert.style.display = "none";
+          }, 3000);
+      </script>
+
+    <form action="/login" method="post" class="login-form">
+      <label for="usuario">Usuario:</label>
+        <input type="text"
+               id="usuario"
+               name="usuario"
+               inputmode="numeric"
+               pattern="[0-9]*"
+               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+               required>
+      <label for="password">Contraseña:</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <button type="submit" class="btn-ingresar">INGRESAR</button>
+    </form>
+
+      <!-- ALERTAS GENERALES -->
+    <div th:if="${error}" class="alerta-error">
+      <p th:text="${error}"></p>
+    </div>
+
+      <!-- ALERTA DE LOGOUT DEBAJO DEL FORMULARIO -->
+      <div th:if="${mensajeLogout}" class="alerta-exito">
+          <p th:text="${mensajeLogout}"></p>
+      </div>
+
+    <div class="footer-help">
+      <p><strong>¿TIENES PROBLEMAS PARA INICIAR SESIÓN?</strong></p>
+      <p>Contacta a la Subdirección Del Desarrollo Tecnológico al correo:<br>
+        contactodgp@edomex.gob.mx o a la extensión #104</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function togglePasswordVisibility() {
+      const passwordField = document.getElementById('password');
+      const eyeIcon = document.querySelector('.eye-icon');
+
+      if (passwordField.type === 'password') {
+          passwordField.type = 'text';
+          // Mostrar ojo abierto (sin línea tachada)
+          eyeIcon.innerHTML = `
+              <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#666" stroke-width="1.5"/>
+              <path d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12C22 12 19 19 12 19C5 19 2 12 2 12Z" stroke="#666" stroke-width="1.5"/>
+          `;
+      } else {
+          passwordField.type = 'password';
+          // Mostrar ojo cerrado (con línea tachada)
+          eyeIcon.innerHTML = `
+              <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#666" stroke-width="1.5"/>
+              <path d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12C22 12 19 19 12 19C5 19 2 12 2 12Z" stroke="#666" stroke-width="1.5"/>
+              <line x1="3" y1="3" x2="21" y2="21" stroke="#666" stroke-width="1.5" stroke-linecap="round"/>
+          `;
+      }
+  }
+</script>
+
+</body>
+</html>

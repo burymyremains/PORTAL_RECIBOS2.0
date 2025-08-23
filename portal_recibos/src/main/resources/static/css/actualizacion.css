@@ -1,0 +1,147 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f6f6f6;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logo-container {
+  display: flex;
+  gap: 20px;
+}
+
+.logo {
+  height: 60px;
+}
+
+.icono-seccion {
+  height: 80px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 28px;
+  margin: 20px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0 40px;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 95%;
+  max-width: 1000px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th {
+  background-color: #caa45d;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.btn-editar {
+  background-color: #8A1E2C;
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.btn-volver {
+  background-color: #caa45d;
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: #8A1E2C;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+
+}
+.form-busqueda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-busqueda label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #222;
+}
+
+.form-busqueda input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 220px;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-busqueda input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px #990000;
+  border-color: #990000;
+}
+
+.form-busqueda button {
+  background-color: #8A1E2C;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-busqueda button:hover {
+  background-color: #7a0000;
+}
+

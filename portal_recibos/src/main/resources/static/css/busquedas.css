@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.logo-container {
+  display: flex;
+  gap: 20px;
+}
+
+.logo {
+  height: 60px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 10px 0 30px;
+}
+
+main {
+  flex: 1;
+  padding: 0 30px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.form-inline {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form-inline label {
+  font-weight: bold;
+  color: #191919;
+}
+
+.form-inline input,
+.form-inline select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f6f6f6;
+}
+
+.form-botones {
+  margin-top: 20px;
+}
+
+.btn-dorado {
+  background-color: #bb9057;
+  color: white;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tabla-contenedor {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+}
+
+.tabla-resultados {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabla-resultados th {
+  background-color: #caa45d;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+}
+
+.tabla-resultados td {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.centrado {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pie {
+  background-color: #8A1E2C;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+
+}
+.boton {
+  background-color: #8A1E2C;
+  color: white;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}

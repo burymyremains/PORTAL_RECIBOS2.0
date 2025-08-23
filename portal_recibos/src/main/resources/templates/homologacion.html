@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Homologación</title>
+    <link rel="stylesheet" href="/css/homologacion.css">
+</head>
+<body>
+<header class="top-bar">
+    <div></div>
+    <div class="logo-container">
+        <img src="/img/LogoGEM.png" alt="Logotipos Gobierno" class="logo">
+    </div>
+
+</header>
+
+<main class="contenido">
+    <h1>HOMOLOGACIÓN</h1>
+
+    <div th:if="${mensajeOk}" class="alerta ok" th:text="${mensajeOk}"></div>
+    <div th:if="${mensajeError}" class="alerta error" th:text="${mensajeError}"></div>
+
+
+    <form id="formHomologar"
+          class="formulario-homologacion"
+          th:action="@{/homologacion}"
+          method="post"
+          autocomplete="off">
+
+        <label for="claveMal">Clave Mal:</label>
+        <input type="text"
+               id="claveMal"
+               name="claveMal"
+               placeholder="Clave Mala"
+               maxlength="12"
+               required>
+
+        <label for="claveOk">Clave Ok:</label>
+        <input type="text"
+               id="claveOk"
+               name="claveOk"
+               placeholder="Clave Buena"
+               maxlength="12"
+               required>
+
+        <input type="hidden" id="usuario" name="usuario" th:value="${session.usuario}"/>
+
+        <button type="submit" class="btn-homologar" >Homologar</button>
+        <a href="/menu" class="btn-volver">Regresar al Menú</a>
+    </form>
+</main>
+
+<footer class="footer">
+    ©2025 - Subdirección de desarrollo Tecnológico
+</footer>
+
+<!-- Previene doble envío y valida que Mal != Ok -->
+<script>
+    (function () {
+        // Quitar cualquier disabled que haya quedado por estilos o scripts viejos
+        ['claveMal','claveOk','btnHomologar'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.removeAttribute('disabled');
+        });
+
+        const form = document.getElementById('formHomologar');
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+            const mal = document.getElementById('claveMal').value.trim();
+            const ok  = document.getElementById('claveOk').value.trim();
+
+            if (!mal || !ok) {
+                e.preventDefault();
+                alert('Llena ambos campos.');
+                return false;
+            }
+            if (mal === ok) {
+                e.preventDefault();
+                alert('La Clave Mal y la Clave Ok no pueden ser iguales.');
+                return false;
+            }
+            // si todo bien, deja enviar
+        });
+    })();
+</script>
+
+
+
+<style>
+    /* fuerza que el formulario esté por encima y acepte clics */
+    .top-bar { position: relative !important; z-index: 1 !important; }
+    .contenido { position: relative !important; z-index: 2 !important; }
+    .formulario-homologacion { position: relative !important; z-index: 3 !important; }
+    .formulario-homologacion, .formulario-homologacion * { pointer-events: auto !important; }
+    /* por si en algún css quedó esto sin querer */
+    .btn-homologar[disabled] { pointer-events: auto !important; }
+</style>
+</body>
+</html>

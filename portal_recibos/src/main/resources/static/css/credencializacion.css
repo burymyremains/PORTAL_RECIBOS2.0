@@ -1,0 +1,119 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logos-derecha {
+  display: flex;
+  gap: 20px;
+}
+
+.logo {
+  height: 60px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 70%;
+  margin: 0 auto 40px auto;
+  padding: 40px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.foto {
+  background-color: #eaeaea;
+  padding: 30px;
+  border-radius: 10px;
+  margin-right: 50px;
+}
+
+.foto-persona {
+  height: 120px;
+  width: 120px;
+  border-radius: 10px;
+}
+
+.datos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.etiqueta {
+  background-color: #8A1E2C;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 8px;
+  width: fit-content;
+  font-weight: bold;
+}
+
+.datos input {
+  padding: 12px;
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.btn-generar {
+  background-color: #bb9057;
+  color: white;
+  font-weight: bold;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.btn-dorado {
+  background-color: #bb9057;
+  color: white;
+  padding: 12px 30px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #8A1E2C;
+  color: white;
+
+  padding: 10px;
+  font-size: 14px;
+  margin-top: auto;
+}

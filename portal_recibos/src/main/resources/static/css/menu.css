@@ -1,0 +1,141 @@
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f3;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.header-logos {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 15px 30px 0 0;
+}
+
+.logo-edomex {
+    height: 50px;
+    width: auto;
+    margin-top: 5px;
+}
+
+.menu-header {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.menu-header h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    max-width: 650px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.selector {
+    margin-top: 40px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.resaltar {
+    color: #8a2035;
+    font-weight: bold;
+}
+
+.menu-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 260px); /* Tres columnas para la primera fila */
+    grid-template-rows: auto auto; /* Dos filas automáticas */
+    gap: 40px 70px; /* Espacio aumentado entre tarjetas */
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.menu-card {
+    background-color: #fff;
+    padding: 20px; /* Padding ajustado para espacio interno */
+    border-left: 8px solid #bb9057;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+    border-radius: 8px;
+    text-align: left; /* Alineación general a la izquierda */
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.2s ease;
+    height: 70px; /* Altura uniforme */
+    width: auto; /* Ancho fijo */
+    display: flex; /* Usamos flex para alinear ícono y texto */
+    align-items: center; /* Centra verticalmente */
+}
+
+.menu-card img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px; /* Espacio entre ícono y texto */
+}
+
+.menu-card span {
+    font-size: 16px; /* Tamaño de texto ajustado */
+    line-height: 1.2; /* Mejor legibilidad */
+    margin: 0px; /* Elimina márgenes predeterminados */
+}
+
+.menu-card:hover {
+    transform: scale(1.05);
+}
+
+/*botón cerrar sesión*/
+.cerrar {
+    margin-top: 27px;
+}
+/*botón cerrar sesión*/
+.cerrar-sesion {
+    background-color: #bb9057;
+    color: white;
+    padding: 13px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #8a2035;
+    color: white;
+    padding: 13px;
+    font-size: 14px;
+}
+
+/* Ajuste para centrar las dos tarjetas de la segunda fila */
+.menu-grid .menu-card:nth-child(1) { grid-row: 1; grid-column: 1; }
+.menu-grid .menu-card:nth-child(2) { grid-row: 1; grid-column: 2; }
+.menu-grid .menu-card:nth-child(3) { grid-row: 1; grid-column: 3; }
+.menu-grid .menu-card:nth-child(4) {
+    grid-row: 2;
+    grid-column: 1 / span 2; /* Ocupa las dos primeras columnas y se centra */
+    justify-self: center; /* Centra horizontalmente */
+}
+.menu-grid .menu-card:nth-child(5) {
+    grid-row: 2;
+    grid-column: 2 / span 2; /* Ajusta para alinear con la cuarta tarjeta */
+    justify-self: center; /* Centra horizontalmente */
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Datos</title>
+    <link rel="stylesheet" href="/css/editar.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="top-fill"></div>
+    <img src="/img/LogoGEM.png" alt="Gobierno" class="logo">
+</header>
+
+<h1 class="titulo">DATOS DEL USUARIO</h1>
+
+<main class="page">
+    <section class="card">
+    <form class="form" th:action="@{/guardar}" method="post">
+        <input type="hidden" name="claveSp" th:value= "${empleado.claveSp}"/>
+
+        <div class="rows">
+            <div class="row">
+                <label class="pill">Clave SP:</label>
+                <input type="text" th:value="${empleado.claveSp}" readonly />
+            </div>
+
+            <div class="row">
+                <label class="pill">Nombre:</label>
+                <input type="text" name="apellidoPaterno" th:value="${empleado.apellidoPaterno}"
+                />
+            </div>
+
+            <div class="row">
+                <label class="pill">CURP:</label>
+            <input type="text" name="curp" th:value="${empleado.curp}" />
+        </div>
+
+            <div class="row">
+                <label class="pill">RFC:</label>
+            <input type="text" name="rfc" th:value="${empleado.rfc}"/>
+        </div>
+
+            <div class="row">
+                <label class="pill">ISSEMYM:</label>
+            <input type="text" name="issemym" th:value="${empleado.issemym}"/>
+        </div>
+        </div>
+
+        <div class="actions">
+            <a href="/actualizacion" class="btn-cancelar">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <a href="/menu" class="btn btn-secondary">Regresar al menú</a>
+        </div>
+    </form>
+</section>
+</main>
+
+<footer class="footer">
+    ©2025 - Subdirección de desarrollo Tecnológico
+</footer>
+</body>
+</html>

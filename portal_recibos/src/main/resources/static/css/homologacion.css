@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfdfd;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logo-container .logo {
+  height: 70px;
+}
+
+.icono-derecha {
+  height: 65px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  margin: 40px 0 30px;
+}
+
+.contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formulario-homologacion {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.formulario-homologacion label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.formulario-homologacion input {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #efeff0;
+  font-size: 16px;
+}
+
+.btn-homologar {
+  margin-top: 20px;
+  background-color: #891826;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: not-allowed;
+  width: 180px;
+  align-self: center;
+}
+.btn-volver {
+    margin-top: 20px;
+    background-color: #bb9057;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 180px;
+    margin-top: 10px;
+    align-self: center;
+
+}
+
+.footer {
+  background-color: #891826;
+  color: white;
+
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* botón siempre clickeable visualmente */
+.btn-homologar { cursor: pointer !important; }
+.btn-homologar[disabled] { cursor: not-allowed !important; }
+
+/* por si alguna regla dejó el botón sin clics */
+.btn-homologar { pointer-events: auto !important; }
+
+/* evita overlays encima del formulario */
+.top-bar { position: relative !important; z-index: 1 !important; }
+.contenido { position: relative !important; z-index: 2 !important; }
+.formulario-homologacion { position: relative !important; z-index: 3 !important; }

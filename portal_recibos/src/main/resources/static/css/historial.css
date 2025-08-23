@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.logo-container {
+  display: flex;
+  gap: 20px;
+}
+
+.logo {
+  height: 60px;
+}
+
+.contenido {
+  flex: 1;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.titulo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.formulario {
+  background: #fff;
+  padding: 20px 30px;
+  display: inline-block;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.label-rojo {
+  background-color: #861b27;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.campo {
+  padding: 10px;
+  border: none;
+  background-color: #e5e5e6;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 250px;
+}
+
+.tabla-contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tabla-filtros {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.buscar-label {
+  font-weight: bold;
+}
+
+.campo-busqueda {
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  background-color: #e5e5e6;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabla th {
+  background-color: #caa566;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+}
+
+.tabla td {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+}
+
+.acciones {
+  margin: 40px 0;
+}
+
+.btn-dorado {
+  background-color: #bb9057;
+  color: white;
+  padding: 12px 30px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #8A1E2C;
+  color: white;
+
+  padding: 12px;
+  font-size: 14px;
+  margin-top: auto;
+}
+

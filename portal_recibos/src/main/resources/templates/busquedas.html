@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Búsquedas</title>
+    <link rel="stylesheet" href="/css/busquedas.css">
+</head>
+<body>
+<header class="encabezado">
+    <div></div>
+    <div class="logo-container">
+        <img src="/img/LogoGEM.png" class="logo" alt="Logo Edomex">
+    </div>
+</header>
+
+<h1 class="titulo">BÚSQUEDAS</h1>
+
+<main>
+    <section class="formulario">
+        <form action="/busquedas" method="get">
+            <div class="form-inline">
+                <label for="clave">Nombre o clave SP:</label>
+                <input type="text" id="clave" name="claveSp"
+                       th:value="${param.claveSp != null} ? ${param.claveSp[0]} : ''"
+                       placeholder="Ej. María Fernanda o 998619208">
+
+                <label for="anio">Año:</label>
+                <select id="anio" name="anio" >
+                    <option value=" " >Todos los años</option>
+                    <option th:each="year : ${añosDisponibles}"
+                            th:value="${year}"
+                            th:text="${year}"
+                            th:selected="${param.anio != null && param.anio[0] == year}"></option>
+                </select>
+               </div>
+
+            <div class="form-botones">
+                <button type="submit" class="boton">Buscar</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Mensaje de error si existe -->
+    <div th:if="${error}" class="error-message">
+        <p th:text="${error}"></p>
+        </div>
+
+    <section class="tabla-contenedor" th:if="${resultados != null}">
+        <table class="tabla-resultados" th:if="${#lists.size(resultados) > 0}">
+            <thead>
+            <tr>
+                <th>CLAVE SP</th>
+                <th>PERIODO</th>
+                <th>AÑO</th>
+                <th>PUESTO</th>
+                <th>PLAZA</th>
+                <th>ADSCRIPCIÓN</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${resultados.empty}">
+                <td colspan="6">No se encontraron resultados</td>
+            </tr>
+            <tr th:each="fila : ${resultados}">
+                <td th:text="${fila.CLAVE_SP}"></td>
+                <td th:text="${fila.PERIODO}"></td>
+                <td th:text="${fila.AÑO}"></td>
+                <td th:text="${fila.PUESTO}"></td>
+                <td th:text="${fila.PLAZA}"></td>
+                <td th:text="${fila.ADSCRIPCION}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="centrado">
+        <a href="/menu" class="btn-dorado">Regresar al menú</a>
+    </div>
+</main>
+
+<footer class="pie">
+    ©2025 - Subdirección de desarrollo Tecnológico
+</footer>
+</body>
+</html>
