@@ -1,58 +1,82 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Actualización de Datos</title>
-  <link rel="stylesheet" href="/css/actualizacion.css">
+    <meta charset="UTF-8">
+    <title>Actualización de Datos</title>
+    <link rel="stylesheet" href="/css/actualizacion.css">
+    <style>
+        /* Estilos adicionales para el botón deshabilitado */
+        .btn-editar.disabled {
+            background-color: #cccccc !important;
+            color: #666666 !important;
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
 
-  <header class="top-bar">
+<header class="top-bar">
     <div></div>
     <div class="logo-container">
-  <img src="/img/LogoGEM.png" alt="Gobierno" class="logo">
+        <img src="/img/LogoGEM.png" alt="Gobierno" class="logo">
     </div>
 </header>
 
-  <h1 class="titulo">Actualización de Datos</h1>
-  <form action="/buscar" method="get" class="form-busqueda">
+<h1 class="titulo">Actualización de Datos</h1>
+
+<form action="/buscar" method="get" class="form-busqueda">
     <label for="claveSp">Buscar por CLAVE SP:</label>
-    <input type="text" id="claveSp" name="claveSp" placeholder="998619147"
-    th:value="${param.claveSp}">
+    <input type="text"
+           id="claveSp"
+           name="claveSp"
+           inputmode="numeric"
+           pattern="[0-9]*"
+           oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+           th:value="${param.claveSp}">
     <button type="submit">Buscar</button>
-  </form>
+</form>
+
+<!-- Mostrar mensaje de error si existe -->
+<div th:if="${error}" class="alerta-error" th:text="${error}"></div>
 
 <main class="main-content">
-  <table th:if="${empleado != null}">
-    <thead>
-    <tr>
-      <th>CLAVE SP</th>
-      <th>NOMBRE</th>
-      <th>RFC</th>
-      <th>CURP</th>
-      <th>ISSEMYM</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td th:text="${empleado.claveSp}">CLAVE</td>
-    <td th:text="${empleado.apellidoPaterno}">NOMBRE</td>
-    <td th:text="${empleado.rfc}">RFC</td>
-      <td th:text="${empleado.curp}">CURP</td>
-      <td th:text="${empleado.issemym}">ISSEMYM</td>
+    <table th:if="${empleado != null}">
+        <thead>
+        <tr>
+            <th>CLAVE SP</th>
+            <th>NOMBRE</th>
+            <th>RFC</th>
+            <th>CURP</th>
+            <th>ISSEMYM</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${empleado.claveSp}">CLAVE</td>
+            <td th:text="${empleado.apellidoPaterno}">NOMBRE</td>
+            <td th:text="${empleado.rfc}">RFC</td>
+            <td th:text="${empleado.curp}">CURP</td>
+            <td th:text="${empleado.issemym}">ISSEMYM</td>
+        </tr>
+        </tbody>
+    </table>
 
-    </tr>
-    </tbody>
-  </table>
-  <div class="botones" th:if="${empleado != null}">
-    <a href="/menu" class="btn-volver">Regresar al menú</a>
-    <a th:href="@{/editar(claveSp=${empleado.claveSp})}" class="btn-editar">EDITAR DATOS</a>
-  </div>
+    <div class="botones" th:if="${empleado != null}">
+        <a href="/menu" class="btn-volver">Regresar al menú</a>
+
+        <!-- Botón de edición condicional -->
+        <a th:href="@{/editar(claveSp=${empleado.claveSp})}"
+           th:classappend="${empleadoEncontrado} ? '' : 'disabled'"
+           class="btn-editar">
+            Editar datos
+        </a>
+    </div>
 </main>
 
 <footer>
-  ©2025 - Subdirección de desarrollo Tecnológico
+    ©2025 - Subdirección de desarrollo Tecnológico
 </footer>
 </body>
 </html>

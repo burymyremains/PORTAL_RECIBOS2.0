@@ -65,11 +65,26 @@ public class HomeController {
         if (session.getAttribute("usuario") == null) return "redirect:/";
         return "menu";
     }
+
     @GetMapping("/actualizacion")
-    public String actualizacionDatos(HttpSession session) {
-        if (session.getAttribute("usuario") == null) return "rediect:/";
+    public String actualizacionDatos(HttpSession session, Model model) {
+        if (session.getAttribute("usuario") == null) return "redirect:/";
+
+        // Si no hay búsqueda todavía, mandamos un empleado vacío
+        if (!model.containsAttribute("empleado")) {
+            Empleado emp = new Empleado();
+            emp.setClaveSp("");
+            emp.setApellidoPaterno("");
+            emp.setCurp("");
+            emp.setRfc("");
+            emp.setIssemym("");
+            model.addAttribute("empleado", emp);
+            model.addAttribute("empleadoEncontrado", false); // Añadir este atributo
+        }
+
         return "actualizacion";
     }
+
     //@GetMapping("/editar")
     //public String editarDatos() {
     //return "editar";
@@ -223,16 +238,36 @@ public class HomeController {
     @GetMapping("/buscar")
     public String buscarPorClave(@RequestParam("claveSp") String claveSp, Model model) {
         System.out.println("/buscar claveSp=" + claveSp);
+        boolean empleadoEncontrado = false; // Variable de control
+
         try (Connection conn = Conexion.obtenerConexionSIPWEB()) {
             EmpleadoDAO dao = new EmpleadoDAO(conn);
             Empleado emp = dao.buscarPorClave(claveSp);
-            System.out.println("/buscar resultado emp=" + (emp == null ? "null" : emp.getClaveSp()));
+
+            if (emp == null) {
+                model.addAttribute("error", "No se encontró un empleado con la clave SP: " + claveSp);
+                emp = new Empleado();
+                emp.setClaveSp("");
+                emp.setApellidoPaterno("");
+                emp.setCurp("");
+                emp.setRfc("");
+                emp.setIssemym("");
+            } else {
+                empleadoEncontrado = true; // Solo se encuentra si existe
+            }
+
             model.addAttribute("empleado", emp);
+            model.addAttribute("empleadoEncontrado", empleadoEncontrado); // Nuevo atributo
+
         } catch (Exception e) {
             System.out.println("Error en búsqueda: " + e.getMessage());
+            model.addAttribute("error", "Error en la búsqueda: " + e.getMessage());
+            model.addAttribute("empleadoEncontrado", false); // En caso de error también deshabilitar
         }
-        return "actualizacion"; // HTML Thymeleaf con los datos cargados
+        return "actualizacion";
     }
+
+
 
     @GetMapping("/editar")
     public String editarEmpleado(@RequestParam("claveSp") String claveSp, Model model) {

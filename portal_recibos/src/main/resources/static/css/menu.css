@@ -62,12 +62,14 @@ body {
     margin-top: 40px;
 }
 
+/*Caja de opciones*/
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(3, 260px); /* Tres columnas para la primera fila */
     grid-template-rows: auto auto; /* Dos filas automáticas */
-    gap: 40px 70px; /* Espacio aumentado entre tarjetas */
+    gap: 40px 88px; /* Espacio aumentado entre tarjetas */
     justify-content: center;
+    font-weight: bold;
     margin-bottom: 40px;
 }
 
@@ -82,9 +84,10 @@ body {
     color: #000;
     transition: transform 0.2s ease;
     height: 70px; /* Altura uniforme */
-    width: auto; /* Ancho fijo */
+    width: 220px; /* Ancho fijo */
     display: flex; /* Usamos flex para alinear ícono y texto */
     align-items: center; /* Centra verticalmente */
+    font-family: 'Open Sans', sans-serif;
 }
 
 .menu-card img {
