@@ -83,7 +83,7 @@ public class EmpleadoDAO {
         emp.setCurp(rs.getString("CURP"));
         emp.setIssemym(rs.getString("ISSEMYM"));
         return emp;
-}
+    }
     public boolean validarCredenciales(String usuario, String password) throws SQLException {
         String sql = "SELECT COUNT(1) FROM RTSEGU WHERE ETYEMP = ? AND ETPASS = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -116,20 +116,25 @@ public class EmpleadoDAO {
     }
 
     // método para buscar en KDDESXXXX
+    // Reemplaza este método en EmpleadoDAO.java
+
     public List<Map<String, Object>> buscarDetallesPorClave(String claveSp, Integer anio) throws SQLException {
         List<Map<String, Object>> resultados = new ArrayList<>();
 
-        // Obtener todas las tablas KDDES disponibles
         List<String> tablasKDDES = obtenerTablasKDDES();
 
         for (String tabla : tablasKDDES) {
-            // Extraer el año del nombre de la tabla
-            int añoTabla = Integer.parseInt(tabla.replace("KDDES", ""));
+            try { // ✅ INICIA EL BLOQUE TRY-CATCH
+                // Extraer el año del nombre de la tabla
+                // Si la tabla se llama "KDDESX2025", esta línea lanzará un error
+                int añoTabla = Integer.parseInt(tabla.replace("KDDES", ""));
 
-            // Si se especificó un año y no coincide, saltar
-            if (anio != null && añoTabla != anio) continue;
+                // Si se especificó un año y no coincide, saltar a la siguiente tabla
+                if (anio != null && añoTabla != anio) {
+                    continue;
+                }
 
-            try {
+                // El resto de tu lógica de consulta SQL se queda igual
                 String sql = "SELECT CLAVE_SP, PERIODO, " + añoTabla + " AS AÑO, " +
                         "CLAVE_CATEGORIA AS PUESTO, " +
                         "CLAVE_PLAZA AS PLAZA, " +
@@ -138,7 +143,6 @@ public class EmpleadoDAO {
 
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                     stmt.setString(1, claveSp);
-
                     try (ResultSet rs = stmt.executeQuery()) {
                         while (rs.next()) {
                             Map<String, Object> row = new HashMap<>();
@@ -151,16 +155,21 @@ public class EmpleadoDAO {
                             resultados.add(row);
                         }
                     }
+                } catch (SQLException e) {
+                    System.err.println("⚠ Error al consultar la tabla " + tabla + ": " + e.getMessage());
                 }
-            } catch (SQLException e) {
-                // Tabla no existe o hay problemas, continuar con siguiente
-                System.err.println("⚠ Error al consultar tabla " + tabla + ": " + e.getMessage());
+
+            } catch (NumberFormatException e) {
+                // ✅ ESTE ES EL CAMBIO MÁS IMPORTANTE
+                // Si el nombre de la tabla no es un número válido (ej. "X2025"),
+                // simplemente lo ignoramos y continuamos con el siguiente ciclo del for.
+                System.err.println("⚠ Ignorando tabla con formato de año no numérico: " + tabla);
             }
         }
 
         // Ordenar resultados por año descendente (más recientes primero)
         Collections.sort(resultados, (a, b) ->
-                Integer.compare((Integer)b.get("AÑO"), (Integer)a.get("AÑO")));
+                Integer.compare((Integer) b.get("AÑO"), (Integer) a.get("AÑO")));
 
         return resultados;
     }
@@ -179,6 +188,6 @@ public class EmpleadoDAO {
         // Ordenar tablas por año descendente
         Collections.sort(tablas, Collections.reverseOrder());
         return tablas;
-}
+    }
 
 }
