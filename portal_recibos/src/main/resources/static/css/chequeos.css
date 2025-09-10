@@ -2,7 +2,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f6f6f6;
+  background-color: #f4f4f3;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -31,14 +31,14 @@ body {
 }
 
 .titulo {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 30px;
   text-transform: uppercase;
 }
 
 .formulario {
-  background: #fff;
+  background: var(--color-vino) ;
   padding: 20px 30px;
   display: inline-block;
   border-radius: 12px;
@@ -46,7 +46,7 @@ body {
 }
 
 .label-rojo {
-  background-color: #861b27;
+  background-color: var(--color-vino);
   color: white;
   padding: 6px 12px;
   border-radius: 8px;
@@ -95,7 +95,7 @@ body {
 }
 
 .tabla th {
-  background-color: #caa566;
+  background-color: #b58e57;
   color: white;
   font-weight: bold;
   padding: 12px;
@@ -113,7 +113,7 @@ body {
 }
 
 .btn-dorado {
-  background-color: #bb9057;
+  background-color: #b58e57;
   color: white;
   padding: 12px 30px;
   font-weight: bold;
@@ -122,7 +122,7 @@ body {
 }
 
 .footer {
-  background-color: #8A1E2C;
+  background-color: #8a2035;
   color: white;
 
   padding: 12px;

@@ -2,7 +2,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f6f6f6;
+  background-color: #f4f4f3;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -26,7 +26,7 @@ body {
 
 .titulo {
   text-align: center;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 30px;
 }
@@ -64,7 +64,7 @@ body {
 }
 
 .etiqueta {
-  background-color: #8A1E2C;
+  background-color: #8a2035;
   color: white;
   padding: 5px 15px;
   border-radius: 8px;
@@ -82,7 +82,7 @@ body {
 }
 
 .btn-generar {
-  background-color: #bb9057;
+  background-color: #b58e57;
   color: white;
   font-weight: bold;
   padding: 12px 25px;
@@ -101,7 +101,7 @@ body {
 }
 
 .btn-dorado {
-  background-color: #bb9057;
+  background-color: #b58e57;
   color: white;
   padding: 12px 30px;
   font-weight: bold;
@@ -110,10 +110,11 @@ body {
 }
 
 .footer {
-  background-color: #8A1E2C;
-  color: white;
-
-  padding: 10px;
-  font-size: 14px;
-  margin-top: auto;
+    margin-top: auto;
+    width: 100%;
+    background: #8a2035;
+    color: white;
+    text-align: left;
+    font-size: 14px;
+    padding: 13px;
 }

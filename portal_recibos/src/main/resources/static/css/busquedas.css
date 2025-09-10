@@ -1,131 +1,219 @@
+/* ----- Reset y base ----- */
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f6f6f6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .encabezado {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 17px 30px 0 0;
 }
 
 .logo-container {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
 
 .logo {
-  height: 60px;
+    height: 50px;
+    width: auto;
+    margin-top: 5px;
 }
 
 .titulo {
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 10px 0 30px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 43px;
+    margin-top: 60px;
 }
 
 main {
-  flex: 1;
-  padding: 0 30px;
+    flex: 1;
+    padding: 0 30px;
 }
 
 .formulario {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
 }
 
 .form-inline {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .form-inline label {
-  font-weight: bold;
-  color: #191919;
+    font-weight: bold;
+    color: #191919;
 }
 
+/*Input para buscar por clave SP o nombre*/
 .form-inline input,
 .form-inline select {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  background-color: #f6f6f6;
+    padding: 8px 15px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    font-size: 15px;
+    width: 200px;
+    transition: box-shadow 0.3s ease;
 }
 
 .form-botones {
-  margin-top: 20px;
+    margin-top: 20px;
+}
+
+.boton { /*buscar*/
+    background-color: #8a2035;
+    color: white;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .btn-dorado {
-  background-color: #bb9057;
-  color: white;
-  padding: 10px 24px;
-  font-size: 14px;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  text-decoration: none;
-  cursor: pointer;
+    background-color: #b58e57;
+    color: white;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .tabla-contenedor {
-  max-width: 1000px;
-  margin: 0 auto 40px;
+    max-width: 1000px;
+    margin: 0 auto 65px;
 }
 
 .tabla-resultados {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+
 }
 
+/* Encabezados de tabla - Parte dorada */
 .tabla-resultados th {
-  background-color: #caa45d;
-  color: white;
-  font-weight: bold;
-  padding: 12px;
-  text-align: center;
+    background-color: #c6a265;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 10px;
+    border-bottom: 2px solid #b58e57;
+}
+/* Y REEMPLAZA TU BLOQUE .tabla-resultados CON ESTE */
+.tabla-resultados {
+    width: 100%;
+    border-collapse: collapse; /* Mantenemos esto */
+    background-color: white;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+
+    /* --- AÑADIMOS ESTO --- */
+    border-radius: 8px; /* Redondea TODAS las esquinas */
+    overflow: hidden;   /* Esconde los picos de las celdas interiores */
 }
 
+/* Celdas de tabla - Parte blanca */
 .tabla-resultados td {
-  padding: 10px;
-  text-align: center;
-  font-size: 14px;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Filas alternas para mejor legibilidad */
+.tabla-resultados tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabla-resultados tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Definición de anchos de columnas */
+.tabla-resultados th:nth-child(1),
+.tabla-resultados td:nth-child(1) {
+    width: 17%;
+}
+
+.tabla-resultados th:nth-child(2),
+.tabla-resultados td:nth-child(2) {
+    width: 10%;
+}
+
+.tabla-resultados th:nth-child(3),
+.tabla-resultados td:nth-child(3) {
+    width: 10%;
+}
+
+.tabla-resultados th:nth-child(4),
+.tabla-resultados td:nth-child(4) {
+    width: 15%;
+}
+
+.tabla-resultados th:nth-child(5),
+.tabla-resultados td:nth-child(5) {
+    width: 15%;
+}
+
+.tabla-resultados th:nth-child(6),
+.tabla-resultados td:nth-child(6) {
+    width: 20%;
+}
+
+/* Evita desbordes si algo es largo */
+.tabla-resultados th,
+.tabla-resultados td {
+    overflow-wrap: break-word;
 }
 
 .centrado {
-  text-align: center;
-  margin-bottom: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 70px;
 }
 
 .pie {
-  background-color: #8A1E2C;
-  color: white;
-  padding: 10px;
-  font-size: 14px;
-
+    background-color: #8a2035;
+    color: white;
+    padding: 13px;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+    margin-top: auto;
 }
-.boton {
-  background-color: #8A1E2C;
-  color: white;
-  padding: 10px 24px;
-  font-size: 14px;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  text-decoration: none;
-  cursor: pointer;
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    background: #8a2035;
+    color: white;
+    text-align: left;
+    font-size: 14px;
+    padding: 13px;
 }

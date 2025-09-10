@@ -16,12 +16,18 @@ header.top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    gap: 20px;
+    padding: 20px 30px 0 0;
 }
 
 .logo-container {
     display: flex;
-    gap: 20px;
+}
+
+.logo-edomex {
+    height: 50px;
+    width: auto;
+    margin-top: 5px;
 }
 
 .logo {
@@ -29,23 +35,32 @@ header.top-bar {
     width: auto;
 }
 
-.icono-seccion {
-    height: 80px;
-}
-
 .titulo {
     font-family: 'Open Sans', sans-serif;
     text-align: center;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: bold;
     margin-top: 60px;
     margin-bottom: 33px;
     text-transform: uppercase;
 }
 
+.content-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Importante para contener el contenido flexible */
+}
+
 .main-content {
     flex: 1;
     padding: 0 40px;
+}
+
+.scroll-content {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0; /* Permite que el contenido se ajuste correctamente */
 }
 
 /* 1) Medición consistente */
@@ -120,7 +135,7 @@ th:nth-child(5), td:nth-child(5) {
 
 /* ISSEMYM   */
 
-/* 3) Evita desbordes feos si algo es largo */
+/* 3) Evita desbordes si algo es largo */
 th, td {
     overflow-wrap: anywhere;
 }
@@ -141,7 +156,6 @@ th, td {
     font-weight: bold;
     border-radius: 10px;
     font-family: 'Open Sans', sans-serif;
-
 }
 
 .btn-volver {
@@ -152,15 +166,16 @@ th, td {
     font-weight: bold;
     border-radius: 10px;
     font-family: 'Open Sans', sans-serif;
-
 }
 
 footer {
+    margin-top: auto; /* Se mantiene al fondo sin ser empujado */
+    width: 100%;
     background-color: #8a2035;
     color: white;
+    text-align: left;
     padding: 13px;
     font-size: 14px;
-
 }
 
 .form-busqueda {
@@ -193,7 +208,6 @@ footer {
     outline: none;
     box-shadow: 0 0 5px #8a2035;
     border-color: #8a2035;
-
 }
 
 .form-busqueda button {
@@ -227,7 +241,7 @@ footer {
     font-weight: bold;
 }
 
-/* Botón deshabilitado */
+/* Botón Editar deshabilitado */
 .btn-editar.disabled {
     background-color: #ccc;
     cursor: not-allowed;

@@ -25,17 +25,15 @@
                        placeholder="Ej. María Fernanda o 998619208">
 
                 <label for="anio">Año:</label>
-                <select id="anio" name="anio" >
-                    <option value=" " >Todos los años</option>
+                <select id="anio" name="anio">
+                    <option value=" ">Todos los años</option>
                     <option th:each="year : ${añosDisponibles}"
                             th:value="${year}"
                             th:text="${year}"
                             th:selected="${param.anio != null && param.anio[0] == year}"></option>
                 </select>
-               </div>
-
-            <div class="form-botones">
                 <button type="submit" class="boton">Buscar</button>
+
             </div>
         </form>
     </section>
@@ -43,10 +41,10 @@
     <!-- Mensaje de error si existe -->
     <div th:if="${error}" class="error-message">
         <p th:text="${error}"></p>
-        </div>
+    </div>
 
-    <section class="tabla-contenedor" th:if="${resultados != null}">
-        <table class="tabla-resultados" th:if="${#lists.size(resultados) > 0}">
+    <section class="tabla-contenedor">
+        <table class="tabla-resultados">
             <thead>
             <tr>
                 <th>CLAVE SP</th>
@@ -58,9 +56,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:if="${resultados.empty}">
-                <td colspan="6">No se encontraron resultados</td>
+            <tr th:if="${resultados == null}">
+                <td colspan="6" class="mensaje-tabla">Realiza una búsqueda para ver los resultados.</td>
             </tr>
+
+            <tr th:if="${resultados != null and resultados.empty}">
+                <td colspan="6" class="mensaje-tabla">No se encontraron resultados para tu búsqueda.</td>
+            </tr>
+
             <tr th:each="fila : ${resultados}">
                 <td th:text="${fila.CLAVE_SP}"></td>
                 <td th:text="${fila.PERIODO}"></td>

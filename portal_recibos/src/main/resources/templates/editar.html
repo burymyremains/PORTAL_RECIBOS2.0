@@ -16,44 +16,44 @@
 
 <main class="page">
     <section class="card">
-    <form class="form" th:action="@{/guardar}" method="post">
-        <input type="hidden" name="claveSp" th:value= "${empleado.claveSp}"/>
+        <form id="form-editar" class="form" th:action="@{/guardar}" method="post">
+            <input type="hidden" name="claveSp" th:value="${empleado.claveSp}"/>
 
-        <div class="rows">
-            <div class="row">
-                <label class="pill">Clave SP:</label>
-                <input type="text" th:value="${empleado.claveSp}" readonly />
+            <div class="rows">
+                <div class="row">
+                    <label class="pill">Clave SP:</label>
+                    <input type="text" th:value="${empleado.claveSp}" readonly/>
+                </div>
+
+                <div class="row">
+                    <label class="pill">Nombre:</label>
+                    <input type="text" name="apellidoPaterno" th:value="${empleado.apellidoPaterno}"/>
+                </div>
+
+                <div class="row">
+                    <label class="pill">CURP:</label>
+                    <input type="text" name="curp" th:value="${empleado.curp}"/>
+                </div>
+
+                <div class="row">
+                    <label class="pill">RFC:</label>
+                    <input type="text" name="rfc" th:value="${empleado.rfc}"/>
+                </div>
+
+                <div class="row">
+                    <label class="pill">ISSEMYM:</label>
+                    <input type="text" name="issemym" th:value="${empleado.issemym}"/>
+                </div>
             </div>
+        </form>
+    </section>
 
-            <div class="row">
-                <label class="pill">Nombre:</label>
-                <input type="text" name="apellidoPaterno" th:value="${empleado.apellidoPaterno}"
-                />
-            </div>
+    <div class="external-buttons">
+        <a href="/menu" class="btn btn-secondary">Regresar al menú</a>
+        <button type="submit" form="form-editar" class="btn btn-primary">Guardar cambios</button>
+        <a href="/actualizacion" class="btn btn-cancelar">Cancelar</a>
 
-            <div class="row">
-                <label class="pill">CURP:</label>
-            <input type="text" name="curp" th:value="${empleado.curp}" />
-        </div>
-
-            <div class="row">
-                <label class="pill">RFC:</label>
-            <input type="text" name="rfc" th:value="${empleado.rfc}"/>
-        </div>
-
-            <div class="row">
-                <label class="pill">ISSEMYM:</label>
-            <input type="text" name="issemym" th:value="${empleado.issemym}"/>
-        </div>
-        </div>
-
-        <div class="actions">
-            <a href="/actualizacion" class="btn-cancelar">Cancelar</a>
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-            <a href="/menu" class="btn btn-secondary">Regresar al menú</a>
-        </div>
-    </form>
-</section>
+    </div>
 </main>
 
 <footer class="footer">
